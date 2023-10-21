@@ -9,7 +9,6 @@ object DM: TDM
       'Port=3050'
       'CharacterSet=WIN1252'
       'DriverID=FB')
-    Connected = True
     LoginPrompt = False
     Left = 32
     Top = 16
@@ -70,10 +69,5 @@ object DM: TDM
     DataSet = QueryMovimento
     Left = 32
     Top = 168
-  end
-  object FDTable1: TFDTable
-    Connection = Conexao
-    Left = 32
-    Top = 112
   end
 end

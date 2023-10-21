@@ -6,12 +6,52 @@ object FrmMovimento: TFrmMovimento
   ClientWidth = 823
   Color = clTeal
   Font.Charset = DEFAULT_CHARSET
-  Font.Color = clWindowText
-  Font.Height = -12
+  Font.Color = clWhite
+  Font.Height = -13
   Font.Name = 'Segoe UI'
-  Font.Style = []
+  Font.Style = [fsBold]
   Position = poScreenCenter
-  TextHeight = 15
+  TextHeight = 17
+  object Label1: TLabel
+    Left = 56
+    Top = 80
+    Width = 96
+    Height = 17
+    Caption = 'IDMOVIMENTO'
+    FocusControl = DBEditIDMovimento
+  end
+  object Label2: TLabel
+    Left = 496
+    Top = 80
+    Width = 69
+    Height = 17
+    Caption = 'CADASTRO'
+    FocusControl = DBEditCadastro
+  end
+  object Label3: TLabel
+    Left = 216
+    Top = 80
+    Width = 56
+    Height = 17
+    Caption = 'USUARIO'
+    FocusControl = DBEditUsuario
+  end
+  object Label4: TLabel
+    Left = 56
+    Top = 128
+    Width = 30
+    Height = 17
+    Caption = 'TIPO'
+    FocusControl = DBEditTipo
+  end
+  object Label5: TLabel
+    Left = 462
+    Top = 128
+    Width = 42
+    Height = 17
+    Caption = 'VALOR'
+    FocusControl = DBEditValor
+  end
   object PanelTop: TPanel
     Left = 0
     Top = 0
@@ -28,6 +68,7 @@ object FrmMovimento: TFrmMovimento
       Height = 45
       Caption = '&Novo'
       TabOrder = 0
+      OnClick = BtnNovoClick
     end
     object BtnEditar: TBitBtn
       Left = 112
@@ -96,16 +137,89 @@ object FrmMovimento: TFrmMovimento
     Color = clActiveCaption
     ParentBackground = False
     TabOrder = 1
-    ExplicitLeft = 488
-    ExplicitTop = 536
-    ExplicitWidth = 185
     object DBNavigator1: TDBNavigator
       Left = 280
       Top = 4
       Width = 224
       Height = 45
+      DataSource = DM.DSMovimento
       VisibleButtons = [nbFirst, nbPrior, nbNext, nbLast]
       TabOrder = 0
     end
+  end
+  object DBEditIDMovimento: TDBEdit
+    Left = 56
+    Top = 96
+    Width = 154
+    Height = 25
+    DataField = 'IDMOVIMENTO'
+    DataSource = DM.DSMovimento
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Segoe UI'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 2
+  end
+  object DBEditCadastro: TDBEdit
+    Left = 496
+    Top = 96
+    Width = 154
+    Height = 25
+    DataField = 'CADASTRO'
+    DataSource = DM.DSMovimento
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Segoe UI'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 3
+  end
+  object DBEditUsuario: TDBEdit
+    Left = 216
+    Top = 96
+    Width = 274
+    Height = 25
+    DataField = 'USUARIO'
+    DataSource = DM.DSMovimento
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Segoe UI'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 4
+  end
+  object DBEditTipo: TDBEdit
+    Left = 56
+    Top = 144
+    Width = 400
+    Height = 25
+    DataField = 'TIPO'
+    DataSource = DM.DSMovimento
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Segoe UI'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 5
+  end
+  object DBEditValor: TDBEdit
+    Left = 462
+    Top = 144
+    Width = 188
+    Height = 25
+    DataField = 'VALOR'
+    DataSource = DM.DSMovimento
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Segoe UI'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 6
   end
 end

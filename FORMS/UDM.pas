@@ -18,7 +18,6 @@ type
     FDGUIxWaitCursor1: TFDGUIxWaitCursor;
     QueryMovimento: TFDQuery;
     DSMovimento: TDataSource;
-    FDTable1: TFDTable;
     QueryMovimentoIDMOVIMENTO: TIntegerField;
     QueryMovimentoCADASTRO: TDateField;
     QueryMovimentoUSUARIO: TStringField;
@@ -36,6 +35,8 @@ var
 implementation
 
 {%CLASSGROUP 'Vcl.Controls.TControl'}
+
+uses UMovimento;
 
 {$R *.dfm}
 
