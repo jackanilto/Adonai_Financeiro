@@ -1,0 +1,46 @@
+object DM: TDM
+  Height = 480
+  Width = 640
+  object Conexao: TFDConnection
+    Params.Strings = (
+      'User_Name=SYSDBA'
+      'Password=masterkey'
+      'Database=C:\Adonai_Financeiro\XE\DADOS\ADONAIFINA.FDB'
+      'Port=3050'
+      'CharacterSet=WIN1252'
+      'DriverID=FB')
+    LoginPrompt = False
+    Left = 32
+    Top = 16
+  end
+  object FDTransaction1: TFDTransaction
+    Connection = Conexao
+    Left = 112
+    Top = 16
+  end
+  object FDPhysFBDriverLink1: TFDPhysFBDriverLink
+    VendorLib = 'C:\Adonai_Financeiro\XE\DADOS\Firebird\fbclient.dll'
+    Left = 192
+    Top = 16
+  end
+  object FDGUIxWaitCursor1: TFDGUIxWaitCursor
+    Provider = 'Forms'
+    Left = 272
+    Top = 16
+  end
+  object QueryMovimento: TFDQuery
+    Connection = Conexao
+    Left = 32
+    Top = 232
+  end
+  object DSMovimento: TDataSource
+    DataSet = QueryMovimento
+    Left = 32
+    Top = 168
+  end
+  object FDTable1: TFDTable
+    Connection = Conexao
+    Left = 32
+    Top = 112
+  end
+end
