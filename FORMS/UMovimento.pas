@@ -27,15 +27,22 @@ type
     Label3: TLabel;
     DBEditUsuario: TDBEdit;
     Label4: TLabel;
-    DBEditTipo: TDBEdit;
     Label5: TLabel;
     DBEditValor: TDBEdit;
+    CBTipo: TDBComboBox;
     procedure BtnSairClick(Sender: TObject);
     procedure BtnNovoClick(Sender: TObject);
+    procedure BtnEditarClick(Sender: TObject);
+    procedure BtnDeletarClick(Sender: TObject);
+    procedure BtnGravarClick(Sender: TObject);
+    procedure BtnCancelarClick(Sender: TObject);
+    procedure BtnAtualizarClick(Sender: TObject);
+    procedure tratabotao;
   private
     { Private declarations }
   public
     { Public declarations }
+    procedure LimparCampos;
   end;
 
 var
@@ -47,20 +54,105 @@ implementation
 
 uses UDM;
 
+procedure TFrmMovimento.BtnAtualizarClick(Sender: TObject);
+begin
+    tratabotao;
+    DM.QueryMovimento.Refresh;  // colca a QUERY em modo Post
+    Messagedlg('Registro atualizado com sucesso!',
+    mtInformation, [mbOK],0);
+
+    LimparCampos;
+
+end;
+
+procedure TFrmMovimento.BtnCancelarClick(Sender: TObject);
+begin
+   tratabotao;
+   DM.QueryMovimento.Cancel;
+   Messagedlg('Ação cancelada',
+   mtInformation, [mbOK],0);
+
+   LimparCampos;
+end;
+
+procedure TFrmMovimento.BtnDeletarClick(Sender: TObject);
+begin
+  tratabotao;
+  if MessageDlg('Deseja deletar este registro?', MtConfirmation, [mbOK, MbNo],0)=mrOk then
+  begin
+    DM.QueryMovimento.Delete;  // colca a QUERY em modo edit
+    tratabotao;
+  end
+  else
+  tratabotao;
+    // caso o usuario clicar em NÂO
+  abort;
+
+    LimparCampos;
+
+end;
+
+procedure TFrmMovimento.BtnEditarClick(Sender: TObject);
+begin
+  tratabotao;
+if MessageDlg('Deseja alterar este registro?', MtConfirmation, [mbOK, MbNo],0)=mrOk then
+  begin
+    DM.QueryMovimento.Edit;  // colca a QUERY em modo edit
+  end
+  else
+  tratabotao;
+    // caso o usuario clicar em NÂO
+  abort;
+
+    LimparCampos;
+
+end;
+
+procedure TFrmMovimento.BtnGravarClick(Sender: TObject);
+begin
+    tratabotao;
+    DM.QueryMovimento.Post;  // colca a QUERY em modo Post
+    Messagedlg('Registro salvo com sucesso!',
+    mtInformation, [mbOK],0);
+    LimparCampos;
+
+end;
+
 procedure TFrmMovimento.BtnNovoClick(Sender: TObject);
    var prox:Integer;
 begin
+    tratabotao;
     DM.QueryMovimento.Open;     //Abre
     DM.QueryMovimento.Last;     //Move para o Ultimo
     prox:=DM.QueryMovimentoIDMOVIMENTO.AsInteger + 1;   //  Recebe o ultimo ID e Add +1
-    DM.QueryMovimento.Append;
+    DM.QueryMovimento.Append; //  Insere uma linha nova no final da tabela.
     DM.QueryMovimentoIDMOVIMENTO.AsInteger:=prox;  //Faz o AutoIncremento na tabela
-    DBEditUsuario.SetFocus;
+    DBEditUsuario.SetFocus;   // Coloca o Foco ( Cursor ) no Edit Usuario
+    DM.QueryMovimentoCADASTRO.AsDateTime := DATE;  // insere a data no campo edit data cadastro
 end;
 
 procedure TFrmMovimento.BtnSairClick(Sender: TObject);
   begin
     Application.Terminate;
+  end;
+
+procedure TFrmMovimento.LimparCampos;
+  begin
+    DBEditIDMovimento.Text := '';
+    DBEditUsuario.Text := '';
+    DBEditCadastro.Text := '';
+    CBTipo.Text := '';
+    DBEditValor.Text := '';
+  end;
+
+procedure TFrmMovimento.tratabotao;
+  begin
+   //Ativa e desativa botoes
+   BtnNovo.Enabled := Not BtnNovo.Enabled;
+   BtnEditar.Enabled := not BtnEditar.Enabled;
+   BtnDeletar.Enabled := not BtnDeletar.Enabled;
+   BtnGravar.Enabled := Not  BtnGravar.Enabled;
+   BtnAtualizar.Enabled := Not BtnAtualizar.Enabled;
   end;
 
 end.

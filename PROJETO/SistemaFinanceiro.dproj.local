@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BorlandProject>
-  <Transactions>
-    <Transaction>2023/10/20 22:10:19.270,=C:\Users\Jack\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2023/10/20 22:46:47.712,C:\Adonai_Financeiro\FORMS\UMovimento.dfm=C:\Users\Jack\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
-    <Transaction>2023/10/20 22:46:47.712,C:\Adonai_Financeiro\FORMS\UMovimento.pas=C:\Users\Jack\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2023/10/20 22:47:19.527,C:\Adonai_Financeiro\PROJETO\SistemaFinanceiro.dproj=C:\Users\Jack\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
-    <Transaction>2023/10/20 23:32:01.231,=C:\Adonai_Financeiro\PROJETO\Unit1.pas</Transaction>
-    <Transaction>2023/10/20 23:49:36.991,C:\Adonai_Financeiro\FORMS\UDM.dfm=C:\Adonai_Financeiro\PROJETO\Unit1.dfm</Transaction>
-    <Transaction>2023/10/20 23:49:36.991,C:\Adonai_Financeiro\FORMS\UDM.pas=C:\Adonai_Financeiro\PROJETO\Unit1.pas</Transaction>
+	<Transactions>
+    <Transaction>2023/10/20 22:10:19.000.270,=C:\Users\Jack\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2023/10/20 22:46:47.000.712,C:\Adonai_Financeiro\FORMS\UMovimento.dfm=C:\Users\Jack\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2023/10/20 22:46:47.000.712,C:\Adonai_Financeiro\FORMS\UMovimento.pas=C:\Users\Jack\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2023/10/20 22:47:19.000.527,C:\Adonai_Financeiro\PROJETO\SistemaFinanceiro.dproj=C:\Users\Jack\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2023/10/20 23:32:01.000.231,=C:\Adonai_Financeiro\PROJETO\Unit1.pas</Transaction>
+    <Transaction>2023/10/20 23:49:36.000.991,C:\Adonai_Financeiro\FORMS\UDM.dfm=C:\Adonai_Financeiro\PROJETO\Unit1.dfm</Transaction>
+    <Transaction>2023/10/20 23:49:36.000.991,C:\Adonai_Financeiro\FORMS\UDM.pas=C:\Adonai_Financeiro\PROJETO\Unit1.pas</Transaction>
   </Transactions>
 </BorlandProject>
