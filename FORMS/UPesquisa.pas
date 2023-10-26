@@ -1,0 +1,26 @@
+unit UPesquisa;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs;
+
+type
+  TFrmPesquisa = class(TForm)
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FrmPesquisa: TFrmPesquisa;
+
+implementation
+
+{$R *.dfm}
+
+uses UMovimento;
+
+end.

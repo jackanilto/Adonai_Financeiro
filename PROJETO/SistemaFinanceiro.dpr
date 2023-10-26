@@ -3,7 +3,8 @@ program SistemaFinanceiro;
 uses
   Vcl.Forms,
   UMovimento in '..\FORMS\UMovimento.pas' {FrmMovimento},
-  UDM in '..\FORMS\UDM.pas' {DM: TDataModule};
+  UDM in '..\FORMS\UDM.pas' {DM: TDataModule},
+  UPesquisa in '..\FORMS\UPesquisa.pas' {FrmPesquisa};
 
 {$R *.res}
 

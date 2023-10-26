@@ -37,7 +37,8 @@ type
     procedure BtnGravarClick(Sender: TObject);
     procedure BtnCancelarClick(Sender: TObject);
     procedure BtnAtualizarClick(Sender: TObject);
-    procedure tratabotao;
+    procedure TRATABOTAO;
+    procedure BtnPesquisarClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -52,11 +53,11 @@ implementation
 
 {$R *.dfm}
 
-uses UDM;
+uses UDM, UPesquisa;
 
 procedure TFrmMovimento.BtnAtualizarClick(Sender: TObject);
 begin
-    tratabotao;
+    TRATABOTAO;
     DM.QueryMovimento.Refresh;  // colca a QUERY em modo Post
     Messagedlg('Registro atualizado com sucesso!',
     mtInformation, [mbOK],0);
@@ -67,7 +68,7 @@ end;
 
 procedure TFrmMovimento.BtnCancelarClick(Sender: TObject);
 begin
-   tratabotao;
+   TRATABOTAO;
    DM.QueryMovimento.Cancel;
    Messagedlg('Ação cancelada',
    mtInformation, [mbOK],0);
@@ -77,14 +78,14 @@ end;
 
 procedure TFrmMovimento.BtnDeletarClick(Sender: TObject);
 begin
-  tratabotao;
+  TRATABOTAO;
   if MessageDlg('Deseja deletar este registro?', MtConfirmation, [mbOK, MbNo],0)=mrOk then
   begin
     DM.QueryMovimento.Delete;  // colca a QUERY em modo edit
-    tratabotao;
+    TRATABOTAO;
   end
   else
-  tratabotao;
+  TRATABOTAO;
     // caso o usuario clicar em NÂO
   abort;
 
@@ -94,23 +95,23 @@ end;
 
 procedure TFrmMovimento.BtnEditarClick(Sender: TObject);
 begin
-  tratabotao;
+  TRATABOTAO;
 if MessageDlg('Deseja alterar este registro?', MtConfirmation, [mbOK, MbNo],0)=mrOk then
   begin
     DM.QueryMovimento.Edit;  // colca a QUERY em modo edit
   end
   else
-  tratabotao;
+  TRATABOTAO;
     // caso o usuario clicar em NÂO
   abort;
 
-    LimparCampos;
+    TRATABOTAO;
 
 end;
 
 procedure TFrmMovimento.BtnGravarClick(Sender: TObject);
 begin
-    tratabotao;
+    TRATABOTAO;
     DM.QueryMovimento.Post;  // colca a QUERY em modo Post
     Messagedlg('Registro salvo com sucesso!',
     mtInformation, [mbOK],0);
@@ -121,7 +122,7 @@ end;
 procedure TFrmMovimento.BtnNovoClick(Sender: TObject);
    var prox:Integer;
 begin
-    tratabotao;
+    TRATABOTAO;
     DM.QueryMovimento.Open;     //Abre
     DM.QueryMovimento.Last;     //Move para o Ultimo
     prox:=DM.QueryMovimentoIDMOVIMENTO.AsInteger + 1;   //  Recebe o ultimo ID e Add +1
@@ -131,9 +132,27 @@ begin
     DM.QueryMovimentoCADASTRO.AsDateTime := DATE;  // insere a data no campo edit data cadastro
 end;
 
+procedure TFrmMovimento.BtnPesquisarClick(Sender: TObject);
+begin
+  FrmPesquisa := TFrmPesquisa.Create(self);
+  FrmPesquisa.ShowModal;
+  try
+
+  finally
+   FrmPesquisa := nil;
+   FrmPesquisa.free;
+  end;
+end;
+
 procedure TFrmMovimento.BtnSairClick(Sender: TObject);
   begin
-    Application.Terminate;
+    if Application.MessageBox('Deseja sair do sistema?','Confirmação',
+    mb_YesNo + MB_ICONQUESTION)=Id_Yes then
+    begin
+      Application.Terminate;
+    end
+  else
+  Abort;
   end;
 
 procedure TFrmMovimento.LimparCampos;
@@ -145,7 +164,7 @@ procedure TFrmMovimento.LimparCampos;
     DBEditValor.Text := '';
   end;
 
-procedure TFrmMovimento.tratabotao;
+procedure TFrmMovimento.TRATABOTAO;
   begin
    //Ativa e desativa botoes
    BtnNovo.Enabled := Not BtnNovo.Enabled;

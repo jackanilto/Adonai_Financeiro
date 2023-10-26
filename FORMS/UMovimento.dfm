@@ -816,6 +816,7 @@ object FrmMovimento: TFrmMovimento
         BBC1BEBBD7D6D5FCFCFCFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
         FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
       TabOrder = 6
+      OnClick = BtnPesquisarClick
     end
     object BtnSair: TBitBtn
       Left = 688
